@@ -2,7 +2,7 @@
 /**
  * main - Entry point
  * Description: 'print numbers of base 16'
- * return: Always 0
+ * Return: Always 0
  */
 int main(void)
 {
