@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <unistd.h>
 /**
-  * main - main function
+  * main - Entry point
+  * printf -output size of types
   * Return: o on success
   */
 int main(void)
