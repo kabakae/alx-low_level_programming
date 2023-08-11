@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <ctype.h>
 /**
- *
- *Description: 'print_alphabet' 
- *main -Entry point
- *
- * Return: Always 0 (success)
- */
+  *main -Entry point
+  *
+  * Return: Always 0 (success)
+  */
 
 int main(void)
 {
