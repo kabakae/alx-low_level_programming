@@ -9,26 +9,25 @@
 
 int main(void)
 {
-	int d, p, q;
+	int i = '0';
+	int j;
 
-	for (d = '0'; d < '9'; d++)
+	while (i <= '9')
 	{
-
-	for (p = d + 1; p <= '9'; p++)
-	{
-	for (q = p + 1; q <= '9'; q++)
-	{
-	if ((p != d) != q)
-	{
-	putchar(d);
-	putchar(p);
-	putchar(q);
-	if (d == '7' && p == '8')
-	continue;
-	putchar(',');
-	}
-	}
-	}
+		j = '0';
+		while (j <= '9')
+		{
+		if (i < j)
+		{
+			putchar(i);
+			putchar(j);
+			if (i != '8' || i == '8' && j != '9')
+			putchar(',');
+			putchar(' ');
+		}
+		j++;
+		}
+		i++;
 	}
 	putchar('\n');
 	return (0);
