@@ -9,7 +9,7 @@
  * than the & 0 if strings are equal.
  */
 int _strcmp(char *s1, char *s2)
-{i
+{
 	int counter, compare_value;
 
 	counter = 0;
