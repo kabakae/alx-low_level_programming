@@ -2,12 +2,11 @@
 #include <stdio.h>
 
 /**
+ * print_buffer - function that prints a buffer.
+ * @size: size
+ * @b: buffer
  *
- *
- *
- *
- *
- *
+ *Return: void
  */
 void print_buffer(char *b, int size)
 {
@@ -36,7 +35,8 @@ void print_buffer(char *b, int size)
 		}
 		for (i = 0; i < j; i++)
 		{
-			int c = * (b + o + i);
+			int c = *(b + o + i);
+
 			if (c < 32 || c > 132)
 			{
 				c = '.';
