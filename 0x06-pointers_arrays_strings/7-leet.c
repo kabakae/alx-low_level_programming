@@ -12,7 +12,7 @@
 char *leet(char *s)
 {
 	int string_length, leetCount;
-	char leetLetter[] = "aAeEO0tTlL";
+	char leetLetters[] = "aAeEO0tTlL";
 	char leetNums[] = "4433007711";
 
 	string_length = 0;
@@ -21,7 +21,7 @@ char *leet(char *s)
 		leetCount = 0;
 		while (leetCount < 10)
 		{
-			if (leetLetter[leetCount] == s[string_length])
+			if (leetLetters[leetCount] == s[string_length])
 			{
 				s[string_length] = leetNums[leetCount];
 			}
