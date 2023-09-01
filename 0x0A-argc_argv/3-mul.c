@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 
 /**
  * main - multiply two numbers
  * @argc: numbers of command line arg...
  * @argv: the array that contains the contains the command line arg..
- * Return: (0) when successful
+ * Return: (0) when successful, 1(Error)
  */
 int main(int argc, char *argv[])
 {
