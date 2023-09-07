@@ -6,7 +6,7 @@
  * @s1: ....
  * @s2: ......
  * @n: ....
- *
+ * Return: ....
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
@@ -33,7 +33,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		if (j <= i)
 			str[j] = s1[j];
-		if (j = i)
+		if (j >= i)
 		{
 			str[j] = s2[k];
 			k++;
