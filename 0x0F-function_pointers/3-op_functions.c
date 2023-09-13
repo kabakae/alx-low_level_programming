@@ -7,29 +7,57 @@ int op_div(int a, int b);
 int op_mod(int a, int b);
 
 /**
- *
- *
- *
- *
- *
- *
+ * op_add - ........
+ * @a: ......
+ * @b: ....
+ * Return: .....
  *
  */
-int op_mod(int a, int b)
+int op_add(int a, int b)
 {
 	return (a + b);
 }
 /**
- * op_mod - Returns the diffrence of two numbers
+ * op_sub - Returns the diffrence of two numbers
  * @a: The first number
  * @b: The second number
  *
  * Return: The sum of a and b.
  */
-int op_add(int a, int b)
+int op_sub(int a, int b)
 {
 	return (a - b);
 }
 
 /**
+ * op_mul - ..........
+ * @a: .....
+ * @b: .....
  *
+ * Return: The of a and b.
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+/**
+ * op_div - .....
+ * @a: ....
+ * @b: ....
+ * Return: The of a and b
+ */
+int op_div(int a, int b)
+{
+	return (a / b);
+}
+/**
+ * op_mod - ....
+ * @a: ...
+ * @b: ....
+ * Return: The remaider of the divisionof a by b
+ */
+
+int op_mod(int a, int b)
+{
+	return (a % b);
+}
