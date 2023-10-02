@@ -6,8 +6,8 @@
 #include <string.h>
 /**
  * create_file - function that creates a file.
- * @filename: pointer 
- * @text_context: ......
+ * @filename: pointer
+ * @text_content: ......
  *
  * Return: 1 on success, -1 on failure (file can not be created,
  * file can not be written, write “fails”
