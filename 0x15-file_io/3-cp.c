@@ -5,7 +5,8 @@
  * @argv:  .....
  * Return: ....
  */
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 	int fd_from, fd_to;
 	ssize_t nread, nwrite;
 	char buffer[BUFFER_SIZE];
