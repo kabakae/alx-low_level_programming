@@ -84,4 +84,3 @@ void close_file(int fd)
 		exit(100);
 	}
 }
-
