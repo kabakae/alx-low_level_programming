@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
 	close_file(fd_to);
 	return (0);
 }
-
 /**
  * open_file - ........
  * @filename: .......
@@ -43,7 +42,6 @@ int open_file(const char *filename, int flags, mode_t mode)
 	}
 	return (fd);
 }
-
 /**
  * copy_file - .......
  * @fd_from: ......
