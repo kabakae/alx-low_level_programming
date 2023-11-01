@@ -4,11 +4,11 @@ int main(int argc, char *argv[]);
 void check_IO_stat(int stat, int fd, char *filename, char mode);
 void check_IO_stat(int stat, int fd, char *filename, char mode);
 /**
+ * main - ...........
+ * @argc: ......
+ * @argv: .....
  *
- *
- *
- *
- *
+ * Return: .....
  */
 int main(int argc, char *argv[])
 {
@@ -42,20 +42,20 @@ int main(int argc, char *argv[])
 }
 
 /**
+ * check_IO_stat - .........
+ * @stat: ........
+ * @fd: ......
+ * @filename: .....
+ * @mode: .......
  *
- *
- *
- *
- *
- *
- *
+ * Return: ......
  */
 void check_IO_stat(int stat, int fd, char *filename, char mode)
 {
 	if (mode == 'c' && stat == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit (100);
+		exit(100);
 	}
 	else if (mode == '0' && stat == -1)
 	{
