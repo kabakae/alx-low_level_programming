@@ -1,84 +1,70 @@
 #include "main.h"
 
+int main(int argc, char *argv[]);
+void check_IO_stat(int stat, int fd, char *filename, char mode);
+void check_IO_stat(int stat, int fd, char *filename, char mode);
 /**
- *main - .......
- * @argc: .....
- * @argv: ....
- * Return: .....
+ *
+ *
+ *
+ *
+ *
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to;
-	mode_t file_permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
+	int src, dest, n_read = 1024, wrote, close_src, close_dest;
+	unsigned int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	char buffer[1024];
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s cp file_from file_to\n", argv[0]);
+		dprintf(STDERR_FILENO, "%s", "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fd_from = open_file(argv[1], O_RDONLY, 0);
-	fd_to = open_file(argv[2], O_WRONLY | O_CREAT | O_TRUNC, file_permissions);
-	copy_file(fd_from, fd_to);
-
-	close_file(fd_from);
-	close_file(fd_to);
+	src = open(argv[1], O_RDONLY);
+	check_IO_stat(src, -1, argv[1], '0');
+	dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+	check_IO_stat(dest, -1, argv[2], 'W');
+	while (n_read == 1024)
+	{
+		n_read = read(src, buffer, sizeof(buffer));
+		if (n_read == -1)
+			check_IO_stat(-1, -1, argv[1], '0');
+		wrote = write(dest, buffer, n_read);
+		if (wrote == -1)
+			check_IO_stat(-1, -1, argv[2], 'W');
+	}
+	close_src = close(src);
+	check_IO_stat(close_src, src, NULL, 'C');
+	close_dest = close(dest);
+	check_IO_stat(close_dest, dest, NULL, 'C');
 	return (0);
 }
-/**
- * open_file - ........
- * @filename: .......
- * @flags: .....
- * @mode: ....
- * Return: .....
- */
-int open_file(const char *filename, int flags, mode_t mode)
-{
-	int fd = open(filename, flags, mode);
 
-	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't open %s\n", filename);
-		exit(98);
-	}
-	return (fd);
-}
 /**
- * copy_file - .......
- * @fd_from: ......
- * @fd_to: ....
  *
- * Return: .....
+ *
+ *
+ *
+ *
+ *
+ *
  */
-void copy_file(int fd_from, int fd_to)
+void check_IO_stat(int stat, int fd, char *filename, char mode)
 {
-	char buffer[BUFFER_SIZE];
-	ssize_t read_bytes, write_bytes;
-
-	while ((read_bytes = read(fd_from, buffer, BUFFER_SIZE)) > 0)
-	{
-		write_bytes = write(fd_to, buffer, read_bytes);
-		if (write_bytes == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to file\n");
-			exit(99);
-		}
-	}
-	if (read_bytes == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
-		exit(98);
-	}
-}
-/**
- *close_file - .....
- * @fd: .....
- * Return: .....
- */
-void close_file(int fd)
-{
-	if (close(fd) == -1)
+	if (mode == 'c' && stat == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
+		exit (100);
+	}
+	else if (mode == '0' && stat == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+		exit(98);
+	}
+	else if (mode == 'W' && stat == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+		exit(99);
 	}
 }
