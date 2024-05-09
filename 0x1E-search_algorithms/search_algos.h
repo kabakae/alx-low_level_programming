@@ -19,7 +19,7 @@ typedef struct akiplist_a
 	size_t index;
 	struct akiplist_a *next;
 	struct akiplist_a *express;
-}akiplist_t;
+} akiplist_t;
 
 
 
